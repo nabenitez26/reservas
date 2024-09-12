@@ -1,0 +1,39 @@
+# .NET Core / ASP.NET Core
+bin/
+obj/
+out/
+build/
+**/*.user
+**/*.suo
+**/*.tmp
+*.log
+*.dmp
+*.pdb
+*.dbmdl
+*.bak
+*.backup
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
