@@ -12,8 +12,6 @@ namespace Reservas.Infrastructure.Data
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
-        public DbSet<Reserva> Reservas { get; set; }
-        public DbSet<DetalleReserva> DetallesReserva { get; set; }
         public DbSet<Notificacion> Notificaciones { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,20 +21,13 @@ namespace Reservas.Infrastructure.Data
             modelBuilder.Entity<Rol>()
                 .ToTable("roles", "usuarioservicio"); 
 
-            modelBuilder.Entity<Reserva>()
-                .ToTable("reservas", "reservaservicio"); 
-
-            modelBuilder.Entity<DetalleReserva>()
-                .ToTable("detallesreserva", "reservaservicio"); 
-
+          
             modelBuilder.Entity<Notificacion>()
                 .ToTable("notificaciones", "notificacionservicio");
 
             modelBuilder.Entity<Usuario>()
         .HasKey(d => d.usuarioid);
 
-            modelBuilder.Entity<DetalleReserva>()
-        .HasKey(d => d.detallereservaid);
         }
     }
 }

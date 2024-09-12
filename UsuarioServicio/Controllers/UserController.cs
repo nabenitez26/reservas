@@ -11,11 +11,11 @@ namespace UsuarioServicio.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class UsuariosController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserService _usuarioService;
 
-        public UsuariosController(IUserService usuarioService)
+        public UserController(IUserService usuarioService)
         {
             _usuarioService = usuarioService;
         }

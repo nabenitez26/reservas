@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Reservas.Domain\Reservas.Domain.csproj" />
+    <ProjectReference Include="..\Reserva.Domain\Reserva.Domain.csproj" />
   </ItemGroup>
 
 </Project>
