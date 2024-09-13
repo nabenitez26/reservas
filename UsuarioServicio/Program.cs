@@ -49,7 +49,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService,UserServices>();
+builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddControllers();

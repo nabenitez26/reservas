@@ -40,7 +40,7 @@ namespace ReservasServicio.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         public async Task<ActionResult> AddReserva(ReservaEntity reserva)
         {
             if (!ModelState.IsValid)
@@ -53,7 +53,7 @@ namespace ReservasServicio.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1,2")]
         public async Task<IActionResult> UpdateReserva(int id, ReservaEntity reserva)
         {
             if (id != reserva.reservaid)
@@ -66,7 +66,7 @@ namespace ReservasServicio.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "2")]
+        [Authorize(Roles = "1")]
         public async Task<IActionResult> DeleteReserva(int id)
         {
             await _reservaService.DeleteReservaAsync(id);

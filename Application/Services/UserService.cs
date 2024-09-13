@@ -9,11 +9,11 @@ using Reservas.Domain.Services.Interfaces;
 
 namespace Reservas.Application.Services
 {
-    public class UserServices : IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _usuarioRepository;
         private readonly PasswordService _passwordService;
-        public UserServices(IUserRepository usuarioRepository)
+        public UserService(IUserRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
             _passwordService = new PasswordService();

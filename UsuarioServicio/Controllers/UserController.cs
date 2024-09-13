@@ -22,7 +22,7 @@ namespace UsuarioServicio.Controllers
         
         [HttpGet("admin-data")]
         [Authorize(Roles = "1")]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetAllUsuarios()
         {
             var usuarios = await _usuarioService.GetAllUsuarioAsync();
             return Ok(usuarios);
@@ -40,7 +40,8 @@ namespace UsuarioServicio.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        [Authorize(Roles = "1,2")]
+        public async Task<ActionResult<Usuario>> AddUsuario(Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
@@ -51,7 +52,7 @@ namespace UsuarioServicio.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public async Task<IActionResult> UpdateUsuario(int id, Usuario usuario)
         {
             if (id != usuario.usuarioid)
             {
