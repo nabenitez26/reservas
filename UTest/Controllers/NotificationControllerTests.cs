@@ -97,7 +97,7 @@ namespace UTest.Controllers
         {
             var notificacion = new Notificacionentity { notificacionid = 1, mensaje = "Mensaje actualizado", usuarioid = 1, tipo = "test" };
             var result = await _controller.UpdateNotificacion(2, notificacion);
-            Assert.IsType<BadRequestResult>(result);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]

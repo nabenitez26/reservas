@@ -85,7 +85,7 @@ namespace UTest.Controllers
         {
             var reserva = new Reservaentity { reservaid = 1, usuarioid = 1, estado = "Confirmada" };
             var result = await _controller.UpdateReserva(2, reserva);
-            Assert.IsType<BadRequestResult>(result);
+            Assert.IsType<BadRequestObjectResult>(result);
         }
 
         [Fact]
