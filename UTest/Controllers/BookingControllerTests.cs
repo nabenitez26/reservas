@@ -11,12 +11,12 @@ using Reservaentity = Reserva.Domain.Entities.Reserva;
 
 namespace UTest.Controllers
 {
-    public class ReservaControllerTests
+    public class BookingControllerTests
     {
         private readonly BookingController _controller;
         private readonly Mock<IBookingService> _reservaServiceMock;
 
-        public ReservaControllerTests()
+        public BookingControllerTests()
         {
             _reservaServiceMock = new Mock<IBookingService>();
             _controller = new BookingController(_reservaServiceMock.Object);
@@ -45,7 +45,7 @@ namespace UTest.Controllers
             var reserva = new Reservaentity { reservaid = 1, usuarioid = 1, estado = "Confirmada" };
             _reservaServiceMock.Setup(s => s.GetReservaByIdAsync(1)).ReturnsAsync(reserva);
 
-            var result = await _controller.GetReserva(1);
+            var result = await _controller.GetReservabyByIdAsync(1);
 
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
             var returnReserva = Assert.IsType<Reservaentity>(okResult.Value);
@@ -57,7 +57,7 @@ namespace UTest.Controllers
         public async Task GetReserva_NonExistingId_ReturnsNotFoundResult()
         {
             _reservaServiceMock.Setup(s => s.GetReservaByIdAsync(2)).ReturnsAsync((Reservaentity)null);
-            var result = await _controller.GetReserva(2);
+            var result = await _controller.GetReservabyByIdAsync(2);
             Assert.IsType<NotFoundResult>(result.Result);
         }
 

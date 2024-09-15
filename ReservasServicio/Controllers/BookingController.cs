@@ -29,7 +29,7 @@ namespace ReservasServicio.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ReservaEntity>> GetReserva(int id)
+        public async Task<ActionResult<ReservaEntity>> GetReservabyByIdAsync(int id)
         {
             var reserva = await _reservaService.GetReservaByIdAsync(id);
             if (reserva == null)
@@ -49,7 +49,7 @@ namespace ReservasServicio.Controllers
             }
 
             await _reservaService.AddReservaAsync(reserva);
-            return CreatedAtAction(nameof(GetReserva), new { id = reserva.reservaid }, reserva);
+            return CreatedAtAction(nameof(GetReservabyByIdAsync), new { id = reserva.reservaid }, reserva);
         }
 
         [HttpPut("{id}")]
